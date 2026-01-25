@@ -1,0 +1,5 @@
+References used:
+- Discrete Mathematics Lecture Notes (U. Maurer, 2024)
+- Cheat sheets of the discmath.ch team
+
+This cheat sheet is not affiliated with, or endorsed by, the above parties.
