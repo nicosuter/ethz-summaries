@@ -1,5 +1,7 @@
 #import "../preamble.typ": *
 
+#colbreak()
+
 = Folgen und Reihen
 
 == Folgen und Reihen – Definitionen
@@ -11,9 +13,7 @@
 
   *Arithmetische Folge:* $a_n = a+(n-1)d$
 
-  *Geometrische Folge:* $a_n = q^(n-1) dot a$
-
-  #Satz $a + q a + dots + q^(n-1) a = cases(n a & q=1, a dot (1-q^n)/(1-q) & q != 1)$
+  *Geometrische Folge:* $a_n = q^(n-1) dot a$ (Summe $->$ "Typische Reihen")
 ]
 
 == Grenzwert und Konvergenz
@@ -30,12 +30,9 @@
   )
 
 
-  #tbox[#Satz Konvergente Folge ist immer *beschränkt* und hat *genau* einen Grenzwert.]
+  #tbox[#Satz Konvergente Folge ist immer *beschränkt* (nicht umkehrbar!) und hat *genau* einen Grenzwert.]
 
-  #key[
-    #Bem konvergent $=>$ beschränkt, aber nicht umgekehrt! \
-    #Bem $a_n$ konv. $=> b_n = a_(n+1) - a_n$ konv.
-  ]
+  #key[#Bem $a_n$ konv. $=> b_n = a_(n+1) - a_n$ konv.]
 
   #tbox[
     #Satz (Sandwich) $lim a_n = lim c_n = alpha$ und $a_n <= b_n <= c_n$ $forall n >= k$ $=>$ $lim b_n = alpha$.
@@ -84,8 +81,6 @@
     $ forall epsilon > 0, exists N >= 1 "so dass" |a_n - a_m| < epsilon quad forall n,m >= N $
   ]
 
-  #Bem Sei $(a_n)$ konvergent $<=>$ beschränkt und $liminf = limsup$.
-
   Für Cauchy-Folge:
   - $=>$ beschränkt
   - $<=>$ konvergent.
@@ -110,13 +105,7 @@
 
   *Divergenz:* #enum([Divergenten Minoranten suchen], [Für alternierende Folgen: $lim a_(p_1(n)) != lim a_(p_2(n))$])
 
-  *Limit Binom:* $lim_(x -> oo)(sqrt(x+5)-sqrt(x-3)) = lim_(x -> oo) 8/(sqrt(x+5)+sqrt(x-3))$
-
-  *Limit Log Trick:* $f^g = e^(g ln f)$, dann $lim u^v = e^(lim [v ln u])$.
-
-  *Limit Subst:* $lim_(x->oo) x^2(1-cos(1/x))$, setze $u=1/x$: $lim_(u->0)(1-cos u)/u^2 = 1/2$.
-
-  #key[*Wachstums-Hierarchie* ($n->oo$, $alpha,beta>0$, $q>1$): $ ln^alpha n << n^beta << q^n << n! << n^n $ Quotient Langsamer/Schneller $-> 0$.]
+  #key[*Wachstums-Hierarchie* ($n->oo$, $alpha,beta>0$, $q>1$): $ ln^alpha n << n^beta << q^n << n! << n^n $]
 
   #tbox[
     *Stolz-Cesàro* (diskretes L'Hospital): $(b_n)$ streng wachsend mit $b_n -> +oo$ (oder $a_n, b_n -> 0$). Falls $lim (a_(n+1)-a_n)/(b_(n+1)-b_n) = L$, dann $lim a_n/b_n = L$.
@@ -127,15 +116,9 @@
 
 == Landau-Symbole
 #concept-block[
-  Für $x -> x_0$ (bzw. $n -> oo$): $f = O(g)$ falls $|f| <= C|g|$ lokal; $f = o(g)$ falls $f\/g -> 0$; $f tilde g$ (asymptotisch gleich) falls $f\/g -> 1$.
+  Für $x -> x_0$ (bzw. $n -> oo$): $f = O(g)$ falls $|f| <= C|g|$ lokal; $f = o(g)$ falls $f\/g -> 0$; $f tilde g$ falls $f\/g -> 1$.
 
-  *Rechenregeln* (für $x -> 0$):
-  #enum(
-    [$o(x^n) plus.minus o(x^n) = o(x^n)$, $quad O(x^n) plus.minus O(x^n) = O(x^n)$],
-    [$x^m dot o(x^n) = o(x^(m+n))$, $quad o(x^m) dot o(x^n) = o(x^(m+n))$],
-    [$o(o(x^n)) = o(x^n)$; $quad o(x^m) = o(x^n)$ falls $m >= n$],
-    [$c dot o(x^n) = o(x^n)$ ($c$ konstant)],
-  )
+  #key[*Kalkül* ($x->0$): Negligibles verschmelzen — $o(x^n) plus.minus o(x^n)$, $c dot o(x^n)$ und $o(x^m)$ mit $m >= n$ sind alle $o(x^n)$ (Konstanten egal). Multiplikation addiert Ordnungen: $x^m dot o(x^n) = o(x^m) dot o(x^n) = o(x^(m+n))$.]
 
   #key[#Bem *Grenzwerte:* Taylor bis zur ersten nicht-verschwindenden Ordnung, Rest als $o(dots)$ mitschleppen. Bsp $(e^x-1-x)/x^2 = (x^2\/2 + o(x^2))/x^2 -> 1/2$.]
 ]
@@ -197,9 +180,7 @@
     *Verdichtung (Cauchy):* $a_n >= 0$ monoton fallend $=>$ $sum a_n$ konv. $<=>$ $sum 2^n a_(2^n)$ konv.
   ]
 
-  *Bertrand:* $sum 1/(n^a (ln n)^s)$ konv. $<=>$ $a > 1$, oder $a = 1 and s > 1$.
-
-  #key[#Bem Falls $lim a_(n+1)/a_n$ existiert ($a_n > 0$), so existiert $lim root(n, a_n)$ und ist gleich $=>$ Wurzellimes via Quotient berechnen.]
+  #key[#Bem Falls $lim a_(n+1)/a_n$ existiert ($a_n > 0$), so existiert $lim root(n, a_n)$ und ist gleich $=>$ Wurzellimit via Quotient berechnen.]
 
   #Bsp $a_n = z^n/(n!)$: $|a_(n+1)/a_n| = |z|/n -> 0$ $=>$ $sum z^n/(n!)$ konvergiert $forall z in CC$.
 ]
@@ -258,4 +239,6 @@
     [Leibnitz anwenden?],
     [Integral Test: $f$ stetig, positiv, monoton fallend auf $[k,oo[$, $f(n) = a_n$: $integral_k^oo f dif x$ konv. $<=>$ $sum a_n$ konv.],
   )
+
+  #key[*Nach Termtyp:* $n!$ oder $c^n$ $->$ Quotient; $(dots)^n$ $->$ Wurzel; $tilde 1\/n^p$ $->$ $p$-Reihe/$zeta$; alternierend $->$ Leibniz; $a_n b_n$ $->$ Dirichlet/Abel.]
 ]

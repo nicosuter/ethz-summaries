@@ -1,5 +1,6 @@
 #import "../preamble.typ": *
 
+#colbreak()
 = Sonstiges
 
 == Injektiv / Surjektiv
@@ -17,22 +18,28 @@
   *Surjektivität* (Bildbereich $]a,b[$): (1) $lim_(x->oo) f = b$, $lim_(x->-oo) f = a$ zeigen; (2) Für beliebiges $y in ]a,b[$: $exists x_1 < x_2$ mit $f(x_1) < y < f(x_2)$, ZWS liefert $exists c: f(c)=y$.
 ]
 
-#colbreak()
 == Nützliche Formeln
 #concept-block[
-  $a x^2+b x+c=0 => x = (-b plus.minus sqrt(b^2-4 a c))/(2a)$
+  $ a x^2+b x+c=0 => x = (-b plus.minus sqrt(b^2-4 a c))/(2a) $
 
-  $b^n-a^n = (b-a)(b^(n-1)+b^(n-2)a+dots+a^(n-1))$; $quad binom(n, k) = n!/((n-k)!k!)$; $quad sqrt(a_k dot a_(k+1)) <= (a_k+a_(k+1))/2$
+  $b^n-a^n = (b-a)(b^(n-1)+b^(n-2)a+dots+a^(n-1))$ \
+  $binom(n, k) = n!/((n-k)!k!)$; $quad sqrt(a_k dot a_(k+1)) <= (a_k+a_(k+1))/2$
 
-  $(1+x)^n >= 1+n x$ (Bernoulli, $n in NN$, $x>-1$); $quad 2|x y| <= epsilon x^2 + 1/epsilon y^2$ (Young)
+  $ (x+y)^n = sum_(k=0)^n binom(n, k) x^(n-k) y^k quad "(Binomial)" $
 
-  $(x+y)^n = sum_(k=0)^n binom(n, k) x^(n-k) y^k$ (Binomial)
+  *Ungleichungen:* \
+  $(1+x)^n >= 1+n x$ #h(0.4em) (Bernoulli, $n in NN$, $x>-1$) \
+  $2|x y| <= epsilon x^2 + 1/epsilon y^2$ #h(0.4em) (Young) \
+  $root(n, a_1 dots a_n) <= 1/n sum_(k=1)^n a_k$ #h(0.4em) (AM-GM, $a_k >= 0$) \
+  $(sum_k a_k b_k)^2 <= (sum_k a_k^2)(sum_k b_k^2)$ #h(0.4em) (Cauchy-Schwarz)
 
-  *AM-GM:* $root(n, a_1 dots a_n) <= 1/n sum_(k=1)^n a_k$ ($a_k >= 0$); $quad$
+  *Standard-Schranken:* \
+  $e^x >= 1+x$ $forall x$; $quad ln x <= x-1$ ($x>0$) \
+  $x/(1+x) <= ln(1+x) <= x$ ($x>-1$) \
+  $cos x >= 1-x^2/2$; $quad |sin x| <= |x|$ $forall x$ \
+  $sin x <= x <= tan x$ auf $[0, pi/2[$
 
-  *Cauchy-Schwarz:* $(sum_k a_k b_k)^2 <= (sum_k a_k^2)(sum_k b_k^2)$.
-
-  *Standard-Schranken:* $e^x >= 1+x$ $forall x$; $ln x <= x-1$ ($x>0$); $x/(1+x) <= ln(1+x) <= x$ ($x>-1$); $cos x >= 1-x^2/2$; $sin x <= x <= tan x$ auf $[0, pi/2[$.
+  *Stirling-Formel:* $n! approx sqrt(2 pi n) dot n^n/e^n$.
 ]
 
 == Exponential und Logarithmus
@@ -41,25 +48,21 @@
     $exp(z) = sum_(n=0)^oo z^n/(n!) = 1+z+z^2/2+dots = e^z$. $exp(z) = lim(1+z/n)^n$.
   ]
   1. $exp(x+y)=exp(x)exp(y)$
-  2. $exp(x) > 1$ $forall x>0$
-  3. $x^a = exp(a ln x)$, $x^0=1$
-  4. $e^(i z)=cos z + i sin z$
-  5. $e^(i pi/2)=i$, $e^(i pi)=-1$, $e^(2 i pi)=1$.
+  2. $x^a = exp(a ln x)$
+  3. $e^(i z)=cos z + i sin z$
+  4. $e^(i pi/2)=i$, $e^(i pi)=-1$, $e^(2 i pi)=1$.
 
   $ln : ]0,oo[ -> RR$ ist Umkehrabbildung zu $exp$.
-  1. $ln(1)=0$
-  2. $ln(e)=1$
-  3. $ln(a b)=ln a+ln b$
-  4. $ln(a/b)=ln a - ln b$
-  5. $ln(x^a)=a ln x$
-  6. $x^a dot x^b = x^(a+b)$
-  7. $(x^a)^b=x^(a b)$. $log_b a = ln a/ln b$.
+  1. $ln(a b)=ln a+ln b$
+  2. $ln(a/b)=ln a - ln b$
+  3. $ln(x^a)=a ln x$; $quad log_b a = ln a/ln b$
   $ln(1+x) = sum_(n=1)^oo (-1)^(n-1)/n x^n$ $(-1 <= x <= 1)$.
 ]
 
 == Trigonometrische Funktionen
 #concept-block[
-  $sin z = sum ((-1)^n z^(2n+1))/((2n+1)!) = (e^(i z)-e^(-i z))/(2i)$; $quad cos z = sum ((-1)^n z^(2n))/((2n)!) = (e^(i z)+e^(-i z))/2$
+  $sin z = sum ((-1)^n z^(2n+1))/((2n+1)!) = (e^(i z)-e^(-i z))/(2i)$ \
+  $cos z = sum ((-1)^n z^(2n))/((2n)!) = (e^(i z)+e^(-i z))/2$
 
   #tbox[$sin, cos : RR -> RR$ stetig; beide Reihen absolut konvergent mit Konvergenzradius $+oo$.]
 
@@ -104,9 +107,15 @@
 
   $sin(arctan x) = x/sqrt(x^2+1)$; $cos(arctan x) = 1/sqrt(x^2+1)$.
 
-  *Produkt $->$ Summe:* $sin a cos b = 1/2[sin(a{+}b)+sin(a{-}b)]$; $cos a cos b = 1/2[cos(a{-}b)+cos(a{+}b)]$; $sin a sin b = 1/2[cos(a{-}b)-cos(a{+}b)]$.
+  *Produkt $->$ Summe:* \
+  $sin a cos b = 1/2[sin(a{+}b)+sin(a{-}b)]$ \
+  $cos a cos b = 1/2[cos(a{-}b)+cos(a{+}b)]$ \
+  $sin a sin b = 1/2[cos(a{-}b)-cos(a{+}b)]$
 
-  *Summe $->$ Produkt:* $sin a plus.minus sin b = 2 sin((a plus.minus b)/2) cos((a minus.plus b)/2)$; $cos a + cos b = 2 cos((a{+}b)/2) cos((a{-}b)/2)$; $cos a - cos b = -2 sin((a{+}b)/2) sin((a{-}b)/2)$.
+  *Summe $->$ Produkt:* \
+  $sin a plus.minus sin b = 2 sin((a plus.minus b)/2) cos((a minus.plus b)/2)$ \
+  $cos a + cos b = 2 cos((a{+}b)/2) cos((a{-}b)/2)$ \
+  $cos a - cos b = -2 sin((a{+}b)/2) sin((a{-}b)/2)$
 
   *Nullstellen:*
   $cos: pi/2+k pi$; $sin: k pi$.
@@ -117,19 +126,12 @@
 
 == Hyperbol- und verwandte Funktionen
 #concept-block[
-  $cosh x = (e^x+e^(-x))/2$; $sinh x = (e^x-e^(-x))/2$; $tanh x = sinh x/cosh x$. $cosh^2-sinh^2=1$.
+  $cosh x = (e^x+e^(-x))/2$; $quad sinh x = (e^x-e^(-x))/2$ \
+  $tanh x = sinh x/cosh x$; $quad cosh^2-sinh^2=1$
 
   *Additionstheoreme:* $sinh(a+b) = sinh a cosh b + cosh a sinh b$; $cosh(a+b) = cosh a cosh b + sinh a sinh b$.
 
   *Umkehrfunktionen:* $"arcsinh" x = ln(x+sqrt(x^2+1))$; $"arccosh" x = ln(x+sqrt(x^2-1))$ ($x>=1$); $"artanh" x = 1/2 ln((1+x)/(1-x))$ ($|x|<1$).
-
-  Reduktionsformeln:
-  $integral cos^n x dif x = (n-1)/n integral cos^(n-2) x dif x + (cos^(n-1) x sin x)/n$
-
-  $integral sin^n x dif x = (n-1)/n integral sin^(n-2) x dif x - (cos x sin^(n-1) x)/n$
-
-  Bogenlänge: $L = integral_a^b sqrt(1+(f'(x))^2) dif x$.
-  $|sin x| <= |x|$, da $f(x)=x-sin x$, $f'(x)=1-cos x >= 0$, $f(0)=0$.
 ]
 
 == (Un)gerade Funktionen
@@ -170,25 +172,21 @@
       columns: 2,
       stroke: 0.3pt,
       align: left,
-      [$lim_(x->oo) 1/x = 0$], [$lim_(x->0)(1+x)^(1/x)=e$],
-      [$lim_(x->oo) e^x = oo$], [$lim_(x->-oo) e^x = 0$],
-      [$lim_(x->oo) e^(-x) = 0$], [$lim_(x->-oo) e^(-x) = oo$],
-      [$lim_(x->oo) e^x/x^m = oo$], [$lim_(x->-oo) x e^x = 0$],
-      [$lim_(x->oo) ln x = oo$], [$lim_(x->0) ln x = -oo$],
-      [$lim_(x->oo)(1+x)^(1/x) = 1$], [$lim_(x->oo)(1+1/x)^b = 1$],
-      [$lim_(x->oo) x^a q^x = 0$ ($0<=q<1$)], [$lim_(x->oo) root(x, x)=1$],
-      [$lim_(x->plus.minus oo)(1+1/x)^x=e$], [$lim_(x->oo)(1-1/x)^x=1/e$],
-      [$lim_(x->plus.minus oo)(1+k/x)^(m x)=e^(k m)$], [$lim_(x->0) sin(x)/x=1$],
-      [$lim_(x->0) 1/cos x=1$], [$lim_(x->0)(cos x-1)/x=0$],
+      [$lim_(x->0)(1+x)^(1/x)=e$], [$lim_(x->oo) e^x/x^m = oo$],
+      [$lim_(x->-oo) x e^x = 0$], [$lim_(x->oo)(1+x)^(1/x) = 1$],
+      [$lim_(x->oo)(1+1/x)^b = 1$], [$lim_(x->oo) x^a q^x = 0$ ($0<=q<1$)],
+      [$lim_(x->oo) root(x, x)=1$], [$lim_(x->plus.minus oo)(1+1/x)^x=e$],
+      [$lim_(x->oo)(1-1/x)^x=1/e$], [$lim_(x->plus.minus oo)(1+k/x)^(m x)=e^(k m)$],
+      [$lim_(x->0) sin(x)/x=1$], [$lim_(x->0)(cos x-1)/x=0$],
       [$lim_(x->0)(1-cos x)/x^2=1/2$], [$lim_(x->0)(e^x-1)/x=1$],
       [$lim_(x->0) x/arctan x=1$], [$lim_(x->oo) arctan x=pi/2$],
       [$lim_(x->oo)(x/(x+k))^x=e^(-k)$], [$lim_(x->0)(e^(a x)-1)/x=a$],
       [$lim_(x->0) ln(x+1)/x=1$], [$lim_(x->oo) ln x/x=0$],
       [$lim_(x->0) log(1-x)/x=-1$], [$lim_(x->1) ln x/(x-1)=1$],
       [$lim_(x->oo) log(x)/x^a=0$], [$lim_(x->oo) 2x/2^x=0$],
-      [$lim_(x->0^+) x ln x=0$], [$lim_(x->0) a^x/x-1=ln a$],
+      [$lim_(x->0^+) x ln x=0$], [$lim_(x->0)(a^x-1)/x=ln a$],
       [$lim_(x->pi/2^-) tan x=+oo$], [$lim_(x->pi/2^+) tan x=-oo$],
-      [$lim_(x->oo) sin(x)/x=0$], [$lim_(x->0^+) x ln x=0$],
+      [$lim_(x->oo) sin(x)/x=0$], [$lim_(x->0)(tan x)/x=1$],
       [$lim_(n->oo) a^(1/n)=1$ ($a>0$)], [$lim_(n->oo) (P(n))^(1/n)=1$],
       [$lim_(n->oo) root(n, n!)/n=1/e$], [$lim_(n->oo) n/root(n, n!)=e$],
       [$lim_(n->oo)(a^n+b^n)^(1/n)="max"(a,b)$], [$binom(2n, n) tilde 4^n/sqrt(pi n)$],

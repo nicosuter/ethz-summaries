@@ -6,9 +6,13 @@
 #concept-block[
   $z = a + b i$, $a = "Re"(z)$, $b = "Im"(z)$. Konjugiert $bar(z) = a - b i$.
 
-  $|z| = sqrt(a^2+b^2) = sqrt(z bar(z))$; $quad z bar(z) = |z|^2$; $quad 1/z = bar(z)/|z|^2$.
+  $|z| = sqrt(a^2+b^2) = sqrt(z bar(z))$ \
+  $z bar(z) = |z|^2$; $quad 1/z = bar(z)/|z|^2$
 
-  *Rechenregeln:* $overline(z+w) = bar(z)+bar(w)$, $overline(z w) = bar(z) bar(w)$, $|z w| = |z||w|$, $|z+w| <= |z|+|w|$, $"Re"(z) = (z+bar(z))/2$, $"Im"(z) = (z-bar(z))/(2i)$.
+  *Rechenregeln:* \
+  $overline(z+w) = bar(z)+bar(w)$; $quad overline(z w) = bar(z) bar(w)$ \
+  $|z w| = |z| |w|$; $quad |z+w| <= |z|+|w|$ \
+  $"Re"(z) = (z+bar(z))/2$; $quad "Im"(z) = (z-bar(z))/(2i)$
 
   #tbox[
     *Polarform:* $z = r(cos phi + i sin phi) = r e^(i phi)$, $r = |z|$, $phi = arg(z) in ]-pi, pi]$ (Hauptwert).

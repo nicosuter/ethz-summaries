@@ -8,7 +8,11 @@
 
   #Def $|x| := max{x,-x}$
 
-  $=>$ #key[$|x y| = |x||y|$, $|x+y| <= |x|+|y|$, $|x+y| >= lr(||x|-|y||)$]
+  #key[
+    $|x y| = |x| |y|$ \
+    $|x+y| <= |x|+|y|$ #h(0.5em) (Dreiecksungl.) \
+    $|x+y| >= lr(||x|-|y||)$ #h(0.5em) (umgekehrte)
+  ]
 ]
 
 == Supremum und Infimum

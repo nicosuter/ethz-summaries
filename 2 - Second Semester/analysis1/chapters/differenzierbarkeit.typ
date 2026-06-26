@@ -2,6 +2,10 @@
 
 = Differentialrechnung
 
+#tbox[
+  *Extremalstelle:* eine Stelle $x_0$, an der $f$ ein lokales Maximum oder Minimum annimmt.
+]
+
 == Differenzierbarkeit
 #concept-block[
   #tbox[
@@ -61,7 +65,9 @@
 
   Gilt auch für $b=+oo$, $x->a^+$, $lambda=+oo$, oder $lim f = lim g = oo$.
 
-  Für "$oo/oo$": $f/g = (1/g)/(1/f)$. Für "$oo - oo$": auf gleichen Nenner bringen.
+  #key[*Unbestimmte Form $->$ Methode:* $0/0$, $oo/oo$ $->$ L'Hospital / Taylor; $quad 0 dot oo$ $->$ als $0/0$ schreiben; $quad oo - oo$ $->$ gleicher Nenner (bzw. $f/g = (1/g)/(1/f)$); $quad 1^oo, 0^0, oo^0$ $->$ $e^(lim (g ln f))$.]
+
+  *Substitution:* unübersichtliche Grenze $x->oo$ via $u=1/x$ auf $u->0$ bringen. Bsp $lim_(x->oo) x^2(1-cos(1/x)) = lim_(u->0)(1-cos u)/u^2 = 1/2$.
 
   #Bsp $lim_(x->0)(1/sin x - 1/x) = lim_(x->0)(x-sin x)/(x sin x)$
 ]
@@ -116,6 +122,4 @@
   Sei $f'(x_0) = dots = f^((n))(x_0) = 0$, $f$ $(n+1)$-mal stetig diff. auf $]a,b[$:
   1. Falls $n$ *gerade* und $x_0$ lokale Extremalstelle $=>$ $f^((n+1))(x_0) = 0$.
   2. Falls $n$ *ungerade* und $f^((n+1))(x_0) > 0$: striktes lok. Minimum; $< 0$: striktes lok. Maximum.
-
-  Falls $x_0$ keine Extremalstelle: $f'(x_0)=0$ $=>$ Sattelpunkt; $f''(x_0)=0$ $=>$ Wendepunkt.
 ]

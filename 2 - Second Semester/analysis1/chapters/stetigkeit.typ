@@ -18,7 +18,7 @@
 
   Sei $f, g$ stetig in $x_0$, $lambda in RR$:
 
-  1.$f+g$, $lambda f$, $f dot g$ stetig
+  1. $f+g$, $lambda f$, $f dot g$ stetig
   2. $g(x_0) != 0 => f/g$ stetig
   3. $|f|$, $max(f, g)$, $min(f, g)$ stetig
   4. Polynome, $sin$, $cos$, $e^x$ stetig auf $RR$

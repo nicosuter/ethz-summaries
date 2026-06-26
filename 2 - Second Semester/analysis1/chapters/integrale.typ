@@ -16,11 +16,9 @@
 
   1. $f$ stetig $=>$ integrierbar
   2. $f$ monoton $=>$ integrierbar
-  3. $f+g$, $lambda f$, $f g$, $|f|$, $f/g$ (falls $|g| >= beta > 0$) integrierbar
+  3. $f+g$, $lambda f$, $f g$, $|f|$, $max(f,g)$, $min(f,g)$, $f/g$ (falls $|g| >= beta > 0$) integrierbar
   4. Jedes Polynom auf $[a,b]$ integrierbar, auch $P(x)/Q(x)$ falls $Q$ keine Nullstellen
   5. Sind $f,g$ in endlich vielen Punkten verschieden, sind entweder beide oder keine integrierbar.
-
-  $ integral_a^b(lambda_1 f + lambda_2 g) dif x = lambda_1 integral_a^b f dif x + lambda_2 integral_a^b g dif x $
 ]
 
 == Riemannsummen erkennen
@@ -37,8 +35,6 @@
   $
     integral_(a+c)^(b+c) f(x) dif x = integral_a^b f(t+c) dif t; quad integral_a^b f(c t) dif t = 1/c integral_(a c)^(b c) f(x) dif x
   $
-  Seien $f,g$ beschränkt, integrierbar, $lambda in RR$: $f+g$, $lambda f$, $f g$, $|f|$, $max(f, g)$, $min(f, g)$, $f/g$ (falls $|g| >= beta > 0$) integrierbar.
-
   #key[*Symmetrie:* $integral_(-a)^a f = 0$ ($f$ ungerade), $= 2 integral_0^a f$ ($f$ gerade). *Spiegelung:* $integral_0^a f(x) dif x = integral_0^a f(a-x) dif x$.]
 ]
 
@@ -68,10 +64,7 @@ $ dif / (dif x) integral_(a(x))^(b(x)) h(t) dif t = h(b(x)) dot b'(x) - h(a(x)) 
 
 #emph[Merke:] Integrand an oberer Grenze $times$ Ableitung oberer Grenze, minus dasselbe für untere Grenze.
 
-Spezialfälle:
-- Untere Grenze konstant: $dif / (dif x) integral_c^(b(x)) h = h(b(x)) b'(x)$
-- Beide Grenzen konstant: Ableitung $= 0$
-- Obere Grenze $= x$: $dif / (dif x) integral_c^x h = h(x)$ (Basis-FTC)
+#emph[Spezialfall] obere Grenze $= x$: $dif / (dif x) integral_c^x h = h(x)$ (Basis-FTC).
 
 == Partielle Integration und Substitution
 #concept-block[
@@ -101,7 +94,13 @@ Spezialfälle:
     *Wallis:* $integral_0^(pi/2) sin^n x dif x = integral_0^(pi/2) cos^n x dif x = cases((pi/2) ((2m-1)!!)/((2m)!!) & n = 2m, ((2m)!!)/((2m+1)!!) & n = 2m+1)$
 
     *Reduktion:* $integral x^n e^x dif x = x^n e^x - n integral x^(n-1) e^x dif x$.
+
+    $integral cos^n x dif x = (n-1)/n integral cos^(n-2) x dif x + (cos^(n-1) x sin x)/n$
+
+    $integral sin^n x dif x = (n-1)/n integral sin^(n-2) x dif x - (cos x sin^(n-1) x)/n$
   ]
+
+  *Bogenlänge:* $L = integral_a^b sqrt(1+(f'(x))^2) dif x$.
 
 ]
 
@@ -129,11 +128,6 @@ Spezialfälle:
   Sei $f(x) = sum c_k x^k$ mit $rho > 0$: $integral_0^x f(t) dif t = sum_(k=0)^oo c_k/(k+1) x^(k+1)$ $forall x in [-rho,rho]$.
 ]
 
-== Stirling-Formel
-#concept-block[
-  $n! approx sqrt(2 pi n) (n/e)^n$; genauer $n! = sqrt(2 pi n) (n/e)^n exp(1/(12n) + R(n))$ mit $|R(n)| <= sqrt(3)/216 dot 1/n^2$.
-]
-
 == Uneigentliche Integrale
 #concept-block[
   #tbox[
@@ -142,24 +136,17 @@ Spezialfälle:
 
   Auch hier kann das Minoranten/Majoranten-Kriterium verwendet werden.
 
-  $f:[1,oo[ -> [0,oo[$ monoton fallend: $sum a_n$ konv. $<=>$ $integral_1^oo f dif x$ konv.
-
   #tbox[
-    *Log-Potenz-Integral:* $integral_a^oo (dif x)/(x (ln x)^s)$ konvergiert $<=>$ $s > 1$ (Subst. $u = ln x -> integral u^(-s) dif u$). Verallgemeinert das Integralkriterium / die $zeta$-Reihe.
-  ]
+    *Integralkriterium:* $f:[1,oo[ -> [0,oo[$ monoton fallend $=>$ $sum a_n$ konv. $<=>$ $integral_1^oo f dif x$ konv. (mit $f(n)=a_n$).
 
-  #tbox[
     *Potenz-Dichotomie:* $integral_0^1 x^(-s) dif x$ konv. $<=>$ $s < 1$; $quad integral_1^oo x^(-s) dif x$ konv. $<=>$ $s > 1$.
+
+    *Log-Potenz:* $integral_a^oo (dif x)/(x (ln x)^s)$ konv. $<=>$ $s > 1$ (Subst. $u = ln x$). Liefert via Integralkriterium auch $sum 1/(n^a (ln n)^s)$ konv. $<=>$ $a>1$, oder $a=1 and s>1$ (*Bertrand*).
   ]
 
   #key[*Gauss-Integral:* $integral_(-oo)^oo e^(-x^2) dif x = sqrt(pi)$, allg. $integral_(-oo)^oo e^(-a x^2) dif x = sqrt(pi\/a)$ ($a > 0$).]
 
   #Bsp $integral_0^1 t^x dif t = 1/(x+1)$ für $x>-1$; $integral_1^oo t^x dif t = -1/(1+x)$ für $x<-1$.
-]
-
-== Unbestimmte Integrale
-#concept-block[
-  Sei $f : I -> RR$ stetig. Dann gibt es eine Stammfunktion $F$ für $f$, eindeutig bis auf Konstante: $integral f(x) dif x = F(x) + C$. Das unbestimmte Integral ist die Umkehrung der Ableitung.
 ]
 
 == Stammfunktionen rationaler Funktionen
