@@ -4,8 +4,6 @@
 #set text(lang: "de")
 #set page(numbering: "1/1", number-align: right + bottom)
 
-// Cohesive, muted "academic rainbow" — neighbors alternate cool/warm so
-// adjacent concept-blocks stay distinct. All mid-dark: white title text reads.
 #let my-colors = (
   rgb("#1F4E79"), // deep blue
   rgb("#B5651D"), // ochre
@@ -15,6 +13,7 @@
   rgb("#6D4C91"), // muted violet
   rgb("#9A7D0A"), // goldenrod
   rgb("#356B9E"), // steel blue
+  rgb("#A14B34"), // burnt sienna / rust
 )
 
 #let homepage = link("https://nicosuter.me")[https://nicosuter.me]

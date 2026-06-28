@@ -31,7 +31,7 @@
     #Satz (De Moivre) $(cos phi + i sin phi)^n = cos(n phi) + i sin(n phi)$, d.h. $z^n = r^n e^(i n phi)$.
   ]
 
-  Nützlich für Additionstheoreme: Real-/Imaginärteil von $(cos phi + i sin phi)^n$ vergleichen.
+  Nützlich für Additionstheoreme: Real-/Imaginärteil von $(cos phi + i sin phi)^n$ vergleichen. (Durchgerechnete Beispiele: siehe #emph[Aufgaben].)
 
   #tbox[
     *$n$-te Wurzeln* von $w = rho e^(i psi) != 0$: die Gleichung $z^n = w$ hat genau $n$ Lösungen
@@ -41,9 +41,16 @@
 
   *$n$-te Einheitswurzeln* ($w=1$): $zeta_k = e^(2 pi i k\/n)$, $k=0,dots,n-1$. Es gilt $sum_(k=0)^(n-1) zeta_k = 0$ (für $n >= 2$) und $product$ aller $= (-1)^(n+1)$. Alle sind Potenzen von $zeta_1 = e^(2 pi i\/n)$.
 
-  #key[#Bem *Quadratwurzeln algebraisch* (oft schneller als Polarform): $(a+b i)^2 = z$ $<=>$ $a^2 - b^2 = "Re"(z)$ und $2 a b = "Im"(z)$; nach $a, b in RR$ auflösen. Bsp $z=-5i$: $a^2=b^2$, $2 a b = -5$ $=>$ $plus.minus sqrt(5/2)(1-i)$.]
+  #key[#Bem *Quadratwurzeln algebraisch* (oft schneller als Polarform): $(a+b i)^2 = z$ $<=>$ $a^2 - b^2 = "Re"(z)$ und $2 a b = "Im"(z)$; nach $a, b in RR$ auflösen.]
+]
 
-  #Bsp $z^3 = 1$: $z in {1, e^(2 pi i\/3), e^(4 pi i\/3)} = {1, -1/2 plus.minus sqrt(3)/2 i}$.
+== Trigonometrie via $CC$
+#concept-block[
+  #tbox[
+    *Linearisierung* (gut für Integrale): \
+    $cos phi = (e^(i phi)+e^(-i phi))/2$, $quad sin phi = (e^(i phi)-e^(-i phi))/(2i)$.
+  ]
+  *Additionstheoreme:* $(cos phi + i sin phi)^n$ binomisch entwickeln, Real-/Imaginärteil vergleichen (De Moivre). Durchgerechnet: siehe #emph[Aufgaben].
 ]
 
 == Fundamentalsatz der Algebra

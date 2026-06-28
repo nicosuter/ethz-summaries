@@ -1,4 +1,17 @@
+#import "../preamble.typ": *
+
 = Gewöhnliche Differentialgleichungen
+
+== Grundlagen: Struktur linearer DGl
+Lineare DGl der Ordnung $n$: $a_n(x) y^((n)) + dots + a_1(x) y' + a_0(x) y = s(x)$. Störfunktion $s equiv 0$: #emph[homogen], sonst #emph[inhomogen].
+
+#emph[Superpositionsprinzip] (homogen): sind $y_1, y_2$ Lösungen der homogenen Gl., so auch jede Linearkombination $C_1 y_1 + C_2 y_2$.
+
+#emph[Fundamentalsystem:] eine lineare, homogene DGl der Ordnung $n$ besitzt $n$ linear unabhängige Lösungen $y_1, dots, y_n$ (#emph[Fundamentallösungen]); die allgemeine homogene Lösung ist
+$ y_h = C_1 y_1 + dots + C_n y_n. $
+#emph[Inhomogen:] $y = y_h + y_p$ mit #emph[einer] partikulären Lösung $y_p$.
+
+#key[Die Ordnung $n$ $=$ Grad des char. Polynoms $=$ Anzahl Fundamentallösungen $=$ Anzahl freier Konstanten $=$ Anzahl Zusatzbedingungen (AWP/RWP), die genau eine Lösung festlegen.]
 
 == Trennbare DGl (1. Ordnung)
 $y' = f(x) g(y)$: Trennen und integrieren:
@@ -13,7 +26,7 @@ Homogen ($q=0$): $y = C exp(- integral p dif x)$.
 #emph[Variation der Konstante:] dieselbe Formel als Methode — erst homogen $y_h = C e^(-integral p)$ lösen, dann $C -> C(x)$ ansetzen und in die DGl einsetzen.
 
 == Substitution (1. Ordnung)
-#emph[Lineare Substitution] $y' = f(a x + b y + c)$: setze $u = a x + b y + c$, dann $u' = a + b y' = a + b f(u)$ — #emph[trennbar] in $u$.
+#emph[Lineare Substitution] $y' = f(a x + b y + c)$: setze $u = a x + b y + c$, dann $u' = a + b y' = a + b f(u)$ — #emph[trennbar] in $u$. (Da $x$ rechts nicht mehr explizit vorkommt, heisst $u' = a + b f(u)$ #emph[autonom].)
 
 #emph[In den Variablen homogen] $y' = f(y/x)$ (rechte Seite hängt nur von $y/x$ ab): setze $u = y/x$, also $y = u x$, $y' = u' x + u$. Es folgt $u' x = f(u) - u$ — #emph[trennbar]:
 $ integral (dif u)/(f(u) - u) = integral (dif x)/x. $
@@ -44,11 +57,25 @@ Ansatz nach Form von $g(t)$:
   [$e^(mu t) (sin(omega t) "/" cos(omega t))$], [$e^(mu t)(A sin(omega t) + B cos(omega t))$],
 )
 
-#emph[Resonanz (kritisch!):] Löst der Ansatz bereits die homogene Gl. (d.h. $mu$ bzw. $mu plus.minus i omega$ ist Nullstelle von $p(lambda)$ mit Vielfachheit $m$), multipliziere den Ansatz mit $t^m$.
-
 Ansatz in DGl einsetzen, Koeffizienten durch Vergleich bestimmen.
 
 #emph[Superposition:] $g = g_1 + g_2 ==> y_p = y_(p,1) + y_(p,2)$ (je separat ansetzen).
+
+== Resonanz
+Tritt auf, wenn die Störfunktion $g(t)$ (bzw. ihr Exponent) bereits die homogene Gl. löst — der Standard-Ansatz versagt dann (liefert $0$ statt $g$).
+
+#emph[Regel:] Ist die zum Ansatz gehörende Zahl
+- $0$ #h(0.3em) bei reinem Polynom $P_n(t)$,
+- $mu$ #h(0.3em) bei $e^(mu t) P_n(t)$,
+- $mu plus.minus i omega$ #h(0.3em) bei $e^(mu t)(sin omega t "/" cos omega t)$,
+
+eine Nullstelle des char. Polynoms $p(lambda)$ mit Vielfachheit $m$, so multipliziere den #emph[ganzen] Ansatz mit $t^m$.
+
+#key[$m$ $=$ Vielfachheit der Resonanz-Nullstelle. Kein Resonanzfall $==> m=0$ (Faktor $t^0 = 1$, normaler Ansatz).]
+
+#emph[Bsp.] $y'' + y = cos t$: $plus.minus i omega = plus.minus i$ einfache Nullstelle ($m=1$) $==>$ Ansatz $y_p = t(A cos t + B sin t)$.
+
+#emph[Physik:] reine Resonanz ($"Re" = 0$) liefert Terme $prop t$ #h(0.3em) $==>$ unbeschränktes Anwachsen (vgl. Beschränktheit).
 
 == Anfangswertproblem (AWP)
 Erst allgemeine Lösung $y = y_h + y_p$ mit Konstanten $c_1, c_2$ bestimmen, #emph[dann] $y(t_0), y'(t_0)$ einsetzen und das LGS nach $c_1, c_2$ lösen. Reihenfolge zwingend: Konstanten zuletzt.
