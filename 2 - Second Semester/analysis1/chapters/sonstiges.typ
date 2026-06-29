@@ -124,6 +124,24 @@
   $sin^2 x = (1-cos 2x)/2$; $cos^2 x = (1+cos 2x)/2$. $pi := inf{t > 0: sin t = 0}$; $sin(pi)=0$, $pi in ]2,4[$, $forall x in ]0,pi[$: $sin x > 0$.
 ]
 
+== Harmonische Addition
+#concept-block[
+  #Def Linearkombination von $sin$ und $cos$ gleicher Frequenz als #emph[eine] Schwingung:
+  $ a sin x + b cos x = R sin(x + phi) = R cos(x - psi) $
+
+  *Amplitude:* $R = sqrt(a^2 + b^2)$.
+
+  *Phase* (aus $a = R cos phi$, $b = R sin phi$ bzw. $a = R sin psi$, $b = R cos psi$):
+  $ cos phi = a/R, sin phi = b/R quad (phi = "atan2"(b, a), space tan phi = b/a) $
+  $ cos psi = b/R, sin psi = a/R quad (psi = "atan2"(a, b), space tan psi = a/b) $
+
+  #key[Quadrant von $phi$ aus den Vorzeichen von $a$ und $b$ bestimmen — $tan phi = b/a$ allein ist mehrdeutig.]
+
+  #Bsp $sin x + cos x = sqrt(2) sin(x + pi/4)$; $quad sqrt(3) sin x - cos x = 2 sin(x - pi/6)$.
+
+  Allgemeine Frequenz: $a sin(omega x) + b cos(omega x) = R sin(omega x + phi)$ (gleiches $R$, $phi$).
+]
+
 == Hyperbol- und verwandte Funktionen
 #concept-block[
   $cosh x = (e^x+e^(-x))/2$; $quad sinh x = (e^x-e^(-x))/2$ \
@@ -227,46 +245,57 @@
 == Ableitungen und Stammfunktionen
 #concept-block[
   #text(size: 5.5pt)[
+    #let grp(name) = table.cell(colspan: 4, fill: luma(225), align: left)[*#name*]
     #table(
       columns: 4,
-      stroke: 0.3pt,
+      stroke: (x, y) => (
+        left: if x == 2 { 0.7pt } else { 0.3pt },
+        rest: 0.3pt,
+      ),
       align: center,
-      [$F(x)$], [$f(x)$], [$F(x)$], [$f(x)$],
-      [$x^a$], [$a x^(a-1)$], [$e^x$], [$e^x$],
-      [$x^(a+1)/(a+1)$], [$x^a$], [$ln|x|$], [$1/x$],
-      [$log_a |x|$], [$1/(x ln a)$], [$1/f(x)$], [$-f'(x)/f(x)^2$],
-      [$(1/(a(n+1)))(a x+b)^(n+1)$], [$(a x+b)^n$], [$1/a ln|a x+b|$], [$1/(a x+b)$],
-      [$sqrt(x)$], [$1/(2 sqrt(x))$], [$root(n, x)$], [$1/n x^(1/n-1)$],
-      [$(2/3) x^(3/2)$], [$sqrt(x)$], [$(n/(n+1)) x^(1/n+1)$], [$root(n, x)$],
+      [*$F(x)$*], [*$f(x)$*], [*$F(x)$*], [*$f(x)$*],
+      grp[Potenzen, Wurzeln & Allgemeines],
+      [$x^a$], [$a x^(a-1)$], [$x^(a+1)/(a+1)$], [$x^a$],
+      [$(1/(a(n+1)))(a x+b)^(n+1)$], [$(a x+b)^n$], [$sqrt(x)$], [$1/(2 sqrt(x))$],
+      [$(2/3) x^(3/2)$], [$sqrt(x)$], [$root(n, x)$], [$1/n x^(1/n-1)$],
+      [$(n/(n+1)) x^(1/n+1)$], [$root(n, x)$], [$1/f(x)$], [$-f'(x)/f(x)^2$],
+      [$ln|f|$], [$f'/f$], [$x^x (1+ln x)$], [$x^x$],
+      [$(x^x)^x (x+2x ln x)$], [$(x^x)^x$], table.cell(colspan: 2)[],
+      grp[Exponential & Logarithmus],
+      [$e^x$], [$e^x$], [$(1/(b ln a))a^(b x)$], [$a^(b x)$],
+      [$ln|x|$], [$1/x$], [$log_a |x|$], [$1/(x ln a)$],
+      [$1/a ln|a x+b|$], [$1/(a x+b)$], [$1/(n+1)(ln x)^(n+1)$], [$1/x (ln x)^n$],
+      grp[Trigonometrisch],
       [$sin x$], [$cos x$], [$cos x$], [$-sin x$],
       [$tan x$], [$1/cos^2 x$], [$cot x$], [$-1/sin^2 x$],
       [$ln|tan(x/2)|$], [$1/sin x$], [$ln|tan(x/2+pi/4)|$], [$1/cos x$],
-      [$arcsin x$], [$1/sqrt(1-x^2)$], [$arccos x$], [$-1/sqrt(1-x^2)$],
-      [$arctan x$], [$1/(1+x^2)$], [$(1/a)arctan(x/a)$], [$1/(x^2+a^2)$],
-      [$x arcsin x + sqrt(1-x^2)$], [$arcsin x$], [$x arccos x - sqrt(1-x^2)$], [$arccos x$],
-      [$sinh x$], [$cosh x$], [$cosh x$], [$sinh x$],
-      [$tanh x$], [$1/cosh^2 x$], [$ln(cosh x)$], [$tanh x$],
-      [$"arcsinh" x$], [$1/sqrt(1+x^2)$], [$"arccosh" x$], [$1/sqrt(x^2-1)$],
       [$-1/a cos(a x+b)$], [$sin(a x+b)$], [$(1/a)sin(a x+b)$], [$cos(a x+b)$],
       [$-ln|cos x|$], [$tan x$], [$ln|sin x|$], [$cot x$],
       [$tan x - x$], [$tan^2 x$], [$-cot x - x$], [$cot^2 x$],
-      [$ln|f|$], [$f'/f$], [$x(ln|x|-1)$], [$ln|x|$],
-      [$1/(n+1)(ln x)^(n+1)$], [$1/x (ln x)^n$], [$x^(n+1)/(n+1)(ln x - 1/(n+1))$], [$x^n ln x$],
-      [$(1/(b ln a))a^(b x)$], [$a^(b x)$], [$(c x-1)/c^2 e^(c x)$], [$x e^(c x)$],
-      [$(e^(c x)(c sin(a x+b)-a cos(a x+b)))/(a^2+c^2)$],
-      [$e^(c x) sin(a x+b)$],
-      [$(e^(c x)(c cos(a x+b)+a sin(a x+b)))/(a^2+c^2)$],
-      [$e^(c x) cos(a x+b)$],
-
       [$(1/2)(x-sin x cos x)$], [$sin^2 x$], [$(1/2)(x+sin x cos x)$], [$cos^2 x$],
-      [$arcsin(x/|a|)$], [$1/sqrt(a^2-x^2)$], [$(1/(2a))ln|(x-a)/(x+a)|$], [$1/(x^2-a^2)$],
-      [$x/2 sqrt(a^2-x^2)+a^2/2 arcsin(x/a)$],
-      [$sqrt(a^2-x^2)$],
+      grp[Inverse Trig],
+      [$arcsin x$], [$1/sqrt(1-x^2)$], [$arccos x$], [$-1/sqrt(1-x^2)$],
+      [$arctan x$], [$1/(1+x^2)$], [$(1/a)arctan(x/a)$], [$1/(x^2+a^2)$],
+      grp[Hyperbolisch & Area],
+      [$sinh x$], [$cosh x$], [$cosh x$], [$sinh x$],
+      [$tanh x$], [$1/cosh^2 x$], [$ln(cosh x)$], [$tanh x$],
+      [$"arcsinh" x$], [$1/sqrt(1+x^2)$], [$"arccosh" x$], [$1/sqrt(x^2-1)$],
+      grp[Wurzel- & rationale Ausdrücke],
+      [$arcsin(x/abs(a))$], [$1/sqrt(a^2-x^2)$], [$(1/(2a))ln abs((x-a)/(x+a))$], [$1/(x^2-a^2)$],
+      [$x/2 sqrt(a^2-x^2)+a^2/2 arcsin(x/a)$], [$sqrt(a^2-x^2)$],
+      [$ln(x+sqrt(x^2 plus.minus a^2))$], [$1/sqrt(x^2 plus.minus a^2)$],
       [$x/2 sqrt(x^2 plus.minus a^2) plus.minus a^2/2 ln|x+sqrt(x^2 plus.minus a^2)|$],
       [$sqrt(x^2 plus.minus a^2)$],
-
-      [$ln(x+sqrt(x^2 plus.minus a^2))$], [$1/sqrt(x^2 plus.minus a^2)$], [$x arctan x - 1/2 ln(1+x^2)$], [$arctan x$],
-      [$x^x (1+ln x)$], [$x^x$], [$(x^x)^x (x+2x ln x)$], [$(x^x)^x$],
+      table.cell(colspan: 2)[],
+      grp[Partielle Integration (IBP)],
+      [$x arcsin x + sqrt(1-x^2)$], [$arcsin x$], [$x arccos x - sqrt(1-x^2)$], [$arccos x$],
+      [$x arctan x - 1/2 ln(1+x^2)$], [$arctan x$], [$x(ln|x|-1)$], [$ln|x|$],
+      [$x^(n+1)/(n+1)(ln x - 1/(n+1))$], [$x^n ln x$], [$(c x-1)/c^2 e^(c x)$], [$x e^(c x)$],
+      [$(sin(a x))/a^2 - (x cos(a x))/a$], [$x sin(a x)$], [$(cos(a x))/a^2 + (x sin(a x))/a$], [$x cos(a x)$],
+      table.cell(colspan: 3, align: center)[$ (e^(c x)(c sin(a x+b)-a cos(a x+b)))/(a^2+c^2) $],
+      [$ e^(c x) sin(a x+b) $],
+      table.cell(colspan: 3, align: center)[$ (e^(c x)(c cos(a x+b)+a sin(a x+b)))/(a^2+c^2) $],
+      [$ e^(c x) cos(a x+b) $],
     )
   ]
 ]

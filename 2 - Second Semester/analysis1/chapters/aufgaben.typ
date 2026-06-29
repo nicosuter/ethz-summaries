@@ -44,6 +44,19 @@
   Also $y_p = t/2 sin t$ (unbeschränkt — Resonanz).
 ]
 
+=== Inhomogen, RHS $= e^(2t)$
+#concept-block[
+  $ y'' - 3y' + 2y = e^(2t) $
+  Char. $lambda^2 - 3lambda + 2 = (lambda-1)(lambda-2) = 0 => lambda = 1, 2$, also $y_h = c_1 e^t + c_2 e^(2t)$.
+
+  RHS $e^(2t)$: $mu = 2$ ist einfache Nullstelle ($m=1$) #h(0.3em)=>#h(0.3em) Resonanz, Ansatz $y_p = A t e^(2t)$.
+  $ y_p' = A e^(2t)(1 + 2t), quad y_p'' = A e^(2t)(4 + 4t) $
+  Einsetzen: $y_p'' - 3 y_p' + 2 y_p = A e^(2t) = e^(2t) => A = 1$. Damit
+  $ y = c_1 e^t + c_2 e^(2t) + t e^(2t). $
+
+  #key[$mu$ Nullstelle von $p(lambda)$ #h(0.3em)=>#h(0.3em) Ansatz $A e^(mu t)$ versagt (gibt $0$); mit $t^m$ multiplizieren ($m$ = Vielfachheit).]
+]
+
 === Inhomogen 3.O
 #concept-block[
   $ u''' - u' = t^2 $
