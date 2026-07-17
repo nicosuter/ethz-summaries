@@ -99,3 +99,20 @@
   Wegen Monotonie gilt $forall k >= 1: a_k >= a_1 = ln(4)$.
   Daraus folgt $c >= ln(4)$. Widerspruch zu $c = 0$.
 ]
+
+== Beweis-Skizzen
+#concept-block[
+  *Konvergent $=>$ beschränkt* — $a_n -> L$: mit $epsilon=1$ gibt es $N$ mit $|a_n - L| < 1$ ($n > N$) $=>$ $|a_n| <= |a_n - L| + |L| < 1 + |L|$ (Dreiecksungl.). Setze $C := max{|a_0|, dots, |a_N|, 1 + |L|}$ $=>$ $|a_n| <= C space forall n$.
+
+  *Teilfolge erbt Grenzwert* — $a_n -> a$, $(a_(k_n))$ Teilfolge ($k_1 < k_2 < dots$ in $NN$) $=>$ $a_(k_n) -> a$. Schlüssel $k_n >= n$ (Ind.: $k_1 >= 1$; $k_(n+1) > k_n => k_(n+1) >= k_n + 1 >= n+1$). Zu $epsilon > 0$ wähle $N$ mit $|a_n - a| < epsilon$ ($n >= N$); für $n >= N$ ist $k_n >= n >= N$ $=>$ $|a_(k_n) - a| < epsilon$. (Dasselbe $N$ genügt — Ausdünnen schiebt Indizes nur weiter in den Tail.)
+
+  *Reihe ($a_n >= 0$): $sum a_n$ konv. $=>$ $sum a_n^2$ konv.* — $sum a_n$ konv. $=>$ $a_n -> 0$ $=>$ $exists N: a_n <= 1$ ($n >= N$) $=>$ $a_n^2 <= a_n$; Vergleichssatz.
+
+  *Nullstelle: Existenz $+$ Eindeutigkeit* (z.B. $1-x^2 = e^(x-1)$ auf $[0,1]$) — $g = 1-x^2-e^(x-1)$: $g(0)>0>g(1)$ $=>$ ZWS gibt Nullstelle; $g$ streng monoton fallend $=>$ genau eine.
+
+  *Existenz $f'(c)=k$* — MWS auf passendem $[a,b]$: $(f(b)-f(a))/(b-a)=k$ liefert $c$. (Wert $f(c)=k$ statt Ableitung: ZWS auf $f$.)
+
+  *Riemann-Summe erkennen* — $1/n sum_(k=1)^n g(k/n) -> integral_0^1 g dif x$. Bsp: $1/n sum_(k=1)^n 1/(1+k/n) -> integral_0^1 (dif x)/(1+x) = ln 2$.
+
+  *Gleichm. Konvergenz widerlegen* (Cauchy) — $exists epsilon>0 space forall N space exists n,m>=N, x: |S_n(x)-S_m(x)| >= epsilon$. Bsp $sum (-1)^k x^(2k)$ auf $[0,1)$: $|S_(2N)-S_(2N-1)| = x^(4N) -> 1$ bei $x->1^-$.
+]

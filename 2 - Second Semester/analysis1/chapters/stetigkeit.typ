@@ -75,11 +75,11 @@
 == Pathologische Funktionen (Gegenbeispiele)
 #concept-block[
   #tbox[
-    *$x sin(1/x)$*, $f(0)=0$: stetig in $0$ (Sandwich: $|x sin(1/x)| <= |x|$), aber *nicht differenzierbar* (Diff.-quotient $sin(1/x)$ hat keinen Grenzwert).
+    *$x sin(1/x)$*, $f(0)=0$: stetig in $0$ (Sandwich: $|x sin(1/x)| <= |x| -> 0$), aber *nicht differenzierbar*: $(f(x)-f(0))\/x = sin(1/x)$ hat keinen Grenzwert.
   ]
 
   #tbox[
-    *$x^2 sin(1/x)$*, $f(0)=0$: überall differenzierbar mit $f'(0)=0$, aber $f'$ *nicht stetig* in $0$ (Term $-cos(1/x)$ oszilliert). Standard "diff., aber nicht $C^1$".
+    *$x^2 sin(1/x)$*, $f(0)=0$: überall diff. mit $f'(0)=lim_(x->0) x sin(1/x)=0$ (Sandwich); für $x!=0$ ist $f'(x)=2x sin(1/x)-cos(1/x)$, und $cos(1/x)$ hat keinen Grenzwert $=>$ $f'$ *nicht stetig* in $0$. Standard "diff., aber nicht $C^1$".
   ]
 
   *$|x|$*: stetig, aber nicht differenzierbar in $0$.

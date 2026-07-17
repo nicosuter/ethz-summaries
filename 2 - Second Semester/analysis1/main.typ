@@ -2,6 +2,7 @@
 #import "preamble.typ": *
 
 #set text(lang: "de")
+#set smartquote(enabled: false)
 #set page(numbering: "1/1", number-align: right + bottom)
 
 #let my-colors = (

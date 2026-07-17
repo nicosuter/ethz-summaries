@@ -2,6 +2,32 @@
 
 = Gewöhnliche Differentialgleichungen
 
+== DGl-Dispatch
+#concept-block[
+  *Reihenfolge:* Ordnung? $->$ linear? $->$ (1.O: Form erkennen / 2.O: homogen $+$ partikulär).
+
+  #tbox[
+    *1. Ordnung* — Form erkennen:
+    #table(
+      columns: (auto, 1fr),
+      stroke: 0.3pt,
+      align: (left + horizon, left + horizon),
+      [$y' = f(x) g(y)$], [*trennbar*: $integral (dif y)/(g(y)) = integral f dif x$],
+      [$y' + p(x) y = q(x)$], [*linear*: int. Faktor $mu = e^(integral p)$],
+      [$y' = f(y/x)$], [*homogen in $y\/x$*: Subst. $u = y/x$],
+      [$y' = f(a x + b y + c)$], [Subst. $u = a x + b y + c$ (autonom $->$ trennbar)],
+    )
+  ]
+
+  #tbox[
+    *2. Ordnung, linear, konst. Koeff.:* $y'' + b y' + c y = g(t)$
+    - #emph[homogen]: char. Polynom $lambda^2 + b lambda + c = 0$; Wurzeln $->$ Fundamentalsystem (reell / doppelt / komplex).
+    - #emph[inhomogen]: $y = y_h + y_p$; $y_p$ nach Form von $g(t)$ ($->$ Ansatz-Tab.), bei *Resonanz* $times t^m$.
+  ]
+
+  #key[*Reflex:* konstante Lösungen / Gleichgewichte ($g(c)=0$) gehen beim Trennen verloren $->$ separat prüfen. Existenz & Eind.: Picard-Lindelöf ($f, partial_y f$ stetig).]
+]
+
 == Grundlagen: Struktur linearer DGl
 Lineare DGl der Ordnung $n$: $a_n(x) y^((n)) + dots + a_1(x) y' + a_0(x) y = s(x)$. Störfunktion $s equiv 0$: #emph[homogen], sonst #emph[inhomogen].
 

@@ -149,15 +149,24 @@ $ dif / (dif x) integral_(a(x))^(b(x)) h(t) dif t = h(b(x)) dot b'(x) - h(a(x)) 
   #Bsp $integral_0^1 t^x dif t = 1/(x+1)$ für $x>-1$; $integral_1^oo t^x dif t = -1/(1+x)$ für $x<-1$.
 ]
 
-== Stammfunktionen rationaler Funktionen
+== Partialbruchzerlegung
 #concept-block[
-  $R(x) = P(x)/Q(x)$: erst Polynomdivision falls grad$(P) >=$ grad$(Q)$. Dann Partialbruchzerlegung:
+  Zerlegung von $R(x) = P(x)/Q(x)$ in einfache Brüche — nützlich für Integration *und* Teleskopsummen. Erst Polynomdivision falls grad$(P) >=$ grad$(Q)$, dann
 
-  *Reelle Nullstelle* $gamma_i$ von $Q$: $integral 1/(x-gamma_i)^n dif x = cases(ln|x-gamma_i| & n=1, -1/((n-1)(x-gamma_i)^(n-1)) & n>1)$
+  $ R(x) = sum_(k=1)^N R_k(x) + sum_(k=1)^M Z_k(x) $
+
+  ($N$ reelle, $M$ komplexe Nullstellen). *Ansatz:* reelle Nullstelle $gamma$ der Vielfachheit $n$ liefert $A_1/(x-gamma) + dots + A_n/(x-gamma)^n$; komplexe $alpha plus.minus i beta$ liefert $(A+B x)/((x-alpha)^2+beta^2)^j$.
 
   #key[#Bem *Zuhalte-Methode* (einfache Pole): Koeffizient von $1/(x-gamma)$ ist $A = lim_(x->gamma)(x-gamma)R(x)$, d.h. Faktor $(x-gamma)$ "zuhalten" und $x=gamma$ einsetzen; äquiv. $A = P(gamma)\/Q'(gamma)$.]
 
-  $R(x) = sum_(k=1)^N R_k(x) + sum_(k=1)^M Z_k(x)$ ($N$ reelle, $M$ komplexe Nullstellen).
+  #Bsp $1/((2n-1)(2n+1)) = 1/2(1/(2n-1) - 1/(2n+1))$ (Teleskop $-> 1/2$).
+]
+
+== Stammfunktionen rationaler Funktionen
+#concept-block[
+  Nach Partialbruchzerlegung jeden Summanden einzeln integrieren:
+
+  *Reelle Nullstelle* $gamma_i$ von $Q$: $integral 1/(x-gamma_i)^n dif x = cases(ln|x-gamma_i| & n=1, -1/((n-1)(x-gamma_i)^(n-1)) & n>1)$
 
   *Komplexe Nullstelle* $alpha plus.minus i beta$: $(A+ B x)/((x-alpha)^2+beta^2)^j$ aufteilen in $(B(x-alpha))/((...)^j) + (A+ B alpha)/((...)^j)$.
 

@@ -4,15 +4,15 @@
 
 == Betrag, Konjugation, Polarform
 #concept-block[
-  $z = a + b i$, $a = "Re"(z)$, $b = "Im"(z)$. Konjugiert $bar(z) = a - b i$.
+  $z = a + b i$, $a = "Re"(z)$, $b = "Im"(z)$. Konjugiert $overline(z) = a - b i$.
 
-  $|z| = sqrt(a^2+b^2) = sqrt(z bar(z))$ \
-  $z bar(z) = |z|^2$; $quad 1/z = bar(z)/|z|^2$
+  $|z| = sqrt(a^2+b^2) = sqrt(z overline(z))$ \
+  $z overline(z) = |z|^2$; $quad 1/z = overline(z)/(|z|^2)$
 
   *Rechenregeln:* \
-  $overline(z+w) = bar(z)+bar(w)$; $quad overline(z w) = bar(z) bar(w)$ \
+  $overline(z+w) = overline(z)+overline(w)$; $quad overline(z w) = overline(z) overline(w)$ \
   $|z w| = |z| |w|$; $quad |z+w| <= |z|+|w|$ \
-  $"Re"(z) = (z+bar(z))/2$; $quad "Im"(z) = (z-bar(z))/(2i)$
+  $"Re"(z) = (z+overline(z))/2$; $quad "Im"(z) = (z-overline(z))/(2i)$
 
   #tbox[
     *Polarform:* $z = r(cos phi + i sin phi) = r e^(i phi)$, $r = |z|$, $phi = arg(z) in ]-pi, pi]$ (Hauptwert).
@@ -61,5 +61,5 @@
 
   #Kor $p$ zerfällt vollständig in Linearfaktoren: $p(z) = a_n product_(k=1)^n (z - lambda_k)$ (mit Vielfachheit), also genau $n$ Nullstellen in $CC$ (mit Vielfachheit gezählt).
 
-  #Bem Bei *reellen* Koeffizienten treten nicht-reelle Nullstellen in konjugierten Paaren $lambda, bar(lambda)$ auf. $=>$ jedes reelle Polynom zerfällt in reelle Linear- und quadratische Faktoren. Polynome ungeraden Grades haben somit mind. eine reelle Nullstelle.
+  #Bem Bei *reellen* Koeffizienten treten nicht-reelle Nullstellen in konjugierten Paaren $lambda, overline(lambda)$ auf. $=>$ jedes reelle Polynom zerfällt in reelle Linear- und quadratische Faktoren. Polynome ungeraden Grades haben somit mind. eine reelle Nullstelle.
 ]

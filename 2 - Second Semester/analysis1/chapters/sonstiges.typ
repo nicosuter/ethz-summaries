@@ -55,7 +55,7 @@
   $ln : ]0,oo[ -> RR$ ist Umkehrabbildung zu $exp$.
   1. $ln(a b)=ln a+ln b$
   2. $ln(a/b)=ln a - ln b$
-  3. $ln(x^a)=a ln x$; $quad log_b a = ln a/ln b$
+  3. $ln(x^a)=a ln x$; $quad log_b a = (ln a)/(ln b)$
   $ln(1+x) = sum_(n=1)^oo (-1)^(n-1)/n x^n$ $(-1 <= x <= 1)$.
 ]
 
@@ -103,18 +103,22 @@
     [$tan$], [$-tan$], [$cot$], [$-cot$], [$-tan$], [$tan$], [$-tan$], [$tan$],
   )
 
-  $tan z = sin z/cos z$ ($z in.not pi/2+pi ZZ$); $cot z = cos z/sin z$ ($z in.not pi ZZ$). $quad tan(a plus.minus b) = (tan a plus.minus tan b)/(1 minus.plus tan a tan b)$.
+  $tan z = (sin z)/(cos z)$ ($z in.not pi/2+pi ZZ$); $cot z = (cos z)/(sin z)$ ($z in.not pi ZZ$). $quad tan(a plus.minus b) = (tan a plus.minus tan b)/(1 minus.plus tan a tan b)$.
 
   $sin(arctan x) = x/sqrt(x^2+1)$; $cos(arctan x) = 1/sqrt(x^2+1)$.
 
   *Produkt $->$ Summe:* \
   $sin a cos b = 1/2[sin(a{+}b)+sin(a{-}b)]$ \
+
   $cos a cos b = 1/2[cos(a{-}b)+cos(a{+}b)]$ \
+
   $sin a sin b = 1/2[cos(a{-}b)-cos(a{+}b)]$
 
   *Summe $->$ Produkt:* \
   $sin a plus.minus sin b = 2 sin((a plus.minus b)/2) cos((a minus.plus b)/2)$ \
+
   $cos a + cos b = 2 cos((a{+}b)/2) cos((a{-}b)/2)$ \
+
   $cos a - cos b = -2 sin((a{+}b)/2) sin((a{-}b)/2)$
 
   *Nullstellen:*
@@ -145,7 +149,7 @@
 == Hyperbol- und verwandte Funktionen
 #concept-block[
   $cosh x = (e^x+e^(-x))/2$; $quad sinh x = (e^x-e^(-x))/2$ \
-  $tanh x = sinh x/cosh x$; $quad cosh^2-sinh^2=1$
+  $tanh x = (sinh x)/(cosh x)$; $quad cosh^2-sinh^2=1$
 
   *Additionstheoreme:* $sinh(a+b) = sinh a cosh b + cosh a sinh b$; $cosh(a+b) = cosh a cosh b + sinh a sinh b$.
 
@@ -197,10 +201,10 @@
       [$lim_(x->oo)(1-1/x)^x=1/e$], [$lim_(x->plus.minus oo)(1+k/x)^(m x)=e^(k m)$],
       [$lim_(x->0) sin(x)/x=1$], [$lim_(x->0)(cos x-1)/x=0$],
       [$lim_(x->0)(1-cos x)/x^2=1/2$], [$lim_(x->0)(e^x-1)/x=1$],
-      [$lim_(x->0) x/arctan x=1$], [$lim_(x->oo) arctan x=pi/2$],
+      [$lim_(x->0) x/(arctan x)=1$], [$lim_(x->oo) arctan x=pi/2$],
       [$lim_(x->oo)(x/(x+k))^x=e^(-k)$], [$lim_(x->0)(e^(a x)-1)/x=a$],
-      [$lim_(x->0) ln(x+1)/x=1$], [$lim_(x->oo) ln x/x=0$],
-      [$lim_(x->0) log(1-x)/x=-1$], [$lim_(x->1) ln x/(x-1)=1$],
+      [$lim_(x->0) ln(x+1)/x=1$], [$lim_(x->oo) (ln x)/x=0$],
+      [$lim_(x->0) log(1-x)/x=-1$], [$lim_(x->1) (ln x)/(x-1)=1$],
       [$lim_(x->oo) log(x)/x^a=0$], [$lim_(x->oo) 2x/2^x=0$],
       [$lim_(x->0^+) x ln x=0$], [$lim_(x->0)(a^x-1)/x=ln a$],
       [$lim_(x->pi/2^-) tan x=+oo$], [$lim_(x->pi/2^+) tan x=-oo$],
@@ -208,6 +212,7 @@
       [$lim_(n->oo) a^(1/n)=1$ ($a>0$)], [$lim_(n->oo) (P(n))^(1/n)=1$],
       [$lim_(n->oo) root(n, n!)/n=1/e$], [$lim_(n->oo) n/root(n, n!)=e$],
       [$lim_(n->oo)(a^n+b^n)^(1/n)="max"(a,b)$], [$binom(2n, n) tilde 4^n/sqrt(pi n)$],
+      [$lim_(n->oo) root(n, binom(2n, n))=4$ (Wurzelkrit.)], [],
     )
   ]
 ]
@@ -218,28 +223,71 @@
     columns: 2,
     stroke: 0.3pt,
     align: left,
-    [$sum_(i=1)^n i = n(n+1)/2$], [$sum_(i=1)^n i^2 = n(n+1)(2n+1)/6$],
-    [$sum_(i=1)^n i^3 = n^2(n+1)^2/4$], [$sum_(i=1)^oo 1/n^2 = pi^2/6$],
+    [$sum_(i=1)^n i = n(n+1)/2$], [$sum_(i=1)^n i^2 = (n(n+1)(2n+1))/6$],
+    [$sum_(i=1)^n i^3 = (n^2(n+1)^2)/4$], [$sum_(i=1)^oo 1/n^2 = pi^2/6$],
     [$sum_(i=1)^oo 1/(n(n+1)) = 1$], [$sum_(i=1)^oo z^i = (1-z^(i+1))/(1-z)$],
-    [$sum_(k=0)^n q^k = (1-q^(n+1))/(1-q)$; $|q|<1: sum_(k=0)^oo q^k = 1/(1-q)$],
-    [Versch. Start ($|q|<1$): $sum_(k=m)^oo q^k = q^m/(1-q)$],
+    [$ sum_(k=0)^n q^k = (1-q^(n+1))/(1-q) $ \
 
-    [$sum 1/n$ div.; $sum 1/n^s$ konv. $s>1$],
+      $ |q|<1: quad sum_(k=0)^oo q^k = 1/(1-q) $],
+    [Versch. Start ($|q|<1$): $ sum_(k=m)^oo q^k = q^m/(1-q) $],
+
+    [$ sum 1/n quad "divergent" $
+      $ sum 1/n^s quad "konvergent" (s>1) $],
   )
 
-  *Harmonisch:* $sum_(n=1)^oo 1/n$ divergent; alternierend $sum(-1)^n/n$ konvergent. *Zeta:* $zeta(s) = sum_(n=1)^oo 1/n^s$ konv. für $s>1$.
+  #table(
+    columns: (auto, 1fr),
+    stroke: 0.3pt,
+    align: (right + horizon, left + horizon),
+    [*Harmonisch*],
+    [$sum_(n=1)^oo 1/n$ divergent \
 
-  *Teleskop:* $sum log(n/(n+1)) = log(1) - lim log(n+1) = -oo$.
+      $sum(-1)^n/n$ konvergent],
 
-  *Bekannte Werte:* $sum_(n=0)^oo 1/n! = e$; $quad sum_(n=0)^oo (-1)^n/(2n+1) = pi/4$ (Leibniz); $quad sum_(n=1)^oo (-1)^(n-1)/n = ln 2$; $quad sum_(n "ung.") 1/n^2 = pi^2/8$; $quad sum_(n=1)^oo 1/n^4 = pi^4/90$.
+    [*Zeta*],
+    [$zeta(s) = sum_(n=1)^oo 1/n^s$ konv. für $s>1$ \
 
-  *Harmonische Zahl:* $H_n = sum_(k=1)^n 1/k = ln n + gamma + 1/(2n) + O(1/n^2)$, $gamma approx 0.5772$ (Euler-Mascheroni).
+      $zeta(2) = pi^2/6$ \
 
-  *Arithmetisch-geometrisch* ($|q|<1$): $sum_(n>=1) n q^n = q/(1-q)^2$; $quad sum_(n>=0)(n+1)q^n = 1/(1-q)^2$; $quad sum_(n>=1) n^2 q^n = (q(1+q))/(1-q)^3$.
+      $zeta(6) = pi^6/945$],
 
-  *Teleskop-Familie:* $sum_(n>=1) 1/(n(n+k)) = H_k/k$; $quad sum_(n>=1) 1/(n(n+1)(n+2)) = 1/4$.
+    [*Teleskop*], [$sum log(n/(n+1)) = log(1) - lim log(n+1) = -oo$],
 
-  *Faulhaber (asympt.):* $sum_(k=1)^n k^p tilde n^(p+1)/(p+1)$, also $1/n^(p+1) sum_(k=1)^n k^p -> 1/(p+1)$. $quad zeta(6) = sum 1/n^6 = pi^6/945$.
+    [*Bekannte Werte*],
+    [$sum_(n=0)^oo 1/n! = e$ \
+
+      $sum_(n=0)^oo (-1)^n/(2n+1) = pi/4$ (Leibniz) \
+
+      $sum_(n=1)^oo (-1)^(n-1)/n = ln 2$ \
+
+      $sum_(n "ung.")^oo 1/n^2 = pi^2/8$ \
+
+      $sum_(n=1)^oo 1/n^4 = pi^4/90$],
+
+    [*Harmon. Zahl*],
+    [$H_n = sum_(k=1)^n 1/k = ln n + gamma + 1/(2n) + O(1/n^2)$ \
+
+      $gamma approx 0.5772$ (Euler-Mascheroni)],
+
+    [*Arithm.-geom.* \ ($|q|<1$)],
+    [$sum_(n>=1) n q^n = q/(1-q)^2$ \
+
+      $sum_(n>=0)(n+1)q^n = 1/(1-q)^2$ \
+
+      $sum_(n>=1) n^2 q^n = (q(1+q))/(1-q)^3$],
+
+    [*Teleskop-Fam.*],
+    [$sum_(n>=1) 1/(n(n+k)) = H_k/k$ \
+
+      $sum_(n>=1) 1/(n(n+1)(n+2)) = 1/4$ \
+
+      $sum_(n>=1) 1/((2n-1)(2n+1)) = 1/2$],
+
+    [*Faulhaber* \ (asympt.)],
+    [$sum_(k=1)^n k^p tilde n^(p+1)/(p+1)$ \
+
+      $1/n^(p+1) sum_(k=1)^n k^p -> 1/(p+1)$],
+  )
 ]
 
 == Ableitungen und Stammfunktionen
@@ -267,8 +315,8 @@
       [$1/a ln|a x+b|$], [$1/(a x+b)$], [$1/(n+1)(ln x)^(n+1)$], [$1/x (ln x)^n$],
       grp[Trigonometrisch],
       [$sin x$], [$cos x$], [$cos x$], [$-sin x$],
-      [$tan x$], [$1/cos^2 x$], [$cot x$], [$-1/sin^2 x$],
-      [$ln|tan(x/2)|$], [$1/sin x$], [$ln|tan(x/2+pi/4)|$], [$1/cos x$],
+      [$tan x$], [$1/(cos^2 x)$], [$cot x$], [$-1/(sin^2 x)$],
+      [$ln|tan(x/2)|$], [$1/(sin x)$], [$ln|tan(x/2+pi/4)|$], [$1/(cos x)$],
       [$-1/a cos(a x+b)$], [$sin(a x+b)$], [$(1/a)sin(a x+b)$], [$cos(a x+b)$],
       [$-ln|cos x|$], [$tan x$], [$ln|sin x|$], [$cot x$],
       [$tan x - x$], [$tan^2 x$], [$-cot x - x$], [$cot^2 x$],
@@ -278,7 +326,7 @@
       [$arctan x$], [$1/(1+x^2)$], [$(1/a)arctan(x/a)$], [$1/(x^2+a^2)$],
       grp[Hyperbolisch & Area],
       [$sinh x$], [$cosh x$], [$cosh x$], [$sinh x$],
-      [$tanh x$], [$1/cosh^2 x$], [$ln(cosh x)$], [$tanh x$],
+      [$tanh x$], [$1/(cosh^2 x)$], [$ln(cosh x)$], [$tanh x$],
       [$"arcsinh" x$], [$1/sqrt(1+x^2)$], [$"arccosh" x$], [$1/sqrt(x^2-1)$],
       grp[Wurzel- & rationale Ausdrücke],
       [$arcsin(x/abs(a))$], [$1/sqrt(a^2-x^2)$], [$(1/(2a))ln abs((x-a)/(x+a))$], [$1/(x^2-a^2)$],

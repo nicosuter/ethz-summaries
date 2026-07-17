@@ -18,6 +18,8 @@
 
 == Grenzwert und Konvergenz
 #concept-block[
+  #key[*Grenzwert berechnen?* Unbestimmte Form $-> $ Grenzwert-Dispatch (§ Differenzierbarkeit).]
+
   #tbox[
     #Def $(a_n)_(n >= 1)$ *konvergiert* gegen $a in CC$ falls $forall epsilon > 0$ $exists N in NN$ mit $|a_n - a| < epsilon$ $forall n >= N$. Äquivalent: $\{n in NN^* : a_n in.not ]l-epsilon, l+epsilon[\}$ endlich. Falls $(S_n)$ gegen $S$ konvergiert: $S = sum_(n=1)^oo a_n$.
   ]
@@ -105,13 +107,27 @@
 
   *Divergenz:* #enum([Divergenten Minoranten suchen], [Für alternierende Folgen: $lim a_(p_1(n)) != lim a_(p_2(n))$])
 
-  #key[*Wachstums-Hierarchie* ($n->oo$, $alpha,beta>0$, $q>1$): $ ln^alpha n << n^beta << q^n << n! << n^n $]
-
   #tbox[
     *Stolz-Cesàro* (diskretes L'Hospital): $(b_n)$ streng wachsend mit $b_n -> +oo$ (oder $a_n, b_n -> 0$). Falls $lim (a_(n+1)-a_n)/(b_(n+1)-b_n) = L$, dann $lim a_n/b_n = L$.
 
     *Cesàro-Mittel:* $a_n -> L$ $=>$ $1/n sum_(k=1)^n a_k -> L$ (Spezialfall $b_n = n$).
   ]
+]
+
+== Asymptotik & Wachstum
+#concept-block[
+  #key[*Reduktionsprinzip:* Im Grenzwert-Rennen und unter $root(n, dot)$ zählt nur der dominante Term; Poly-, Konst- und Log-Faktoren $->1$ (da $n^(1\/n)->1$, $a^(1\/n)->1$, $(ln n)^(1\/n)->1$).]
+
+  #tbox[
+    *Wachstums-Hierarchie* ($n->oo$; $alpha,beta>0$, $q>1$):
+    $ ln^alpha n << n^beta << q^n << n! << n^n $
+  ]
+
+  #tbox[
+    *Ratio $->$ Wurzel:* existiert $lim |a_(n+1)/a_n|$ ($a_n>0$), so existiert $lim root(n, a_n)$ und ist gleich. #light[($=>$ Wurzellimit via Quotient; Basis des Konvergenzradius-Shortcuts.)]
+  ]
+
+  #Bem #light[Stirling $n! tilde sqrt(2 pi n)(n\/e)^n$ $->$ "Nützliche Formeln"; Wurzel-/Wachstumswerte ($root(n, n!)\/n->1\/e$, $(a^n + b^n)^(1\/n)->max$, …) $->$ "Typische Grenzwerte".]
 ]
 
 == Landau-Symbole
@@ -177,10 +193,8 @@
   ]
 
   #tbox[
-    *Verdichtung (Cauchy):* $a_n >= 0$ monoton fallend $=>$ $sum a_n$ konv. $<=>$ $sum 2^n a_(2^n)$ konv.
+    *Verdichtung (Cauchy):* $a_n >= 0$ monoton fallend $=>$ ($sum a_n$ konv. $<=>$ $sum 2^n a_(2^n)$ konv).
   ]
-
-  #key[#Bem Falls $lim a_(n+1)/a_n$ existiert ($a_n > 0$), so existiert $lim root(n, a_n)$ und ist gleich $=>$ Wurzellimit via Quotient berechnen.]
 
   #Bsp $a_n = z^n/(n!)$: $|a_(n+1)/a_n| = |z|/n -> 0$ $=>$ $sum z^n/(n!)$ konvergiert $forall z in CC$.
 ]
@@ -211,12 +225,25 @@
 #concept-block[
   Potenzreihe: $sum_(k=0)^oo c_k z^k$.
   #tbox[
-    #Def Konvergenzradius: $ rho = cases(+oo & limsup root(k, |c_k|) = 0, 1/(limsup root(k, |c_k|)) & "sonst") $
+    *Konvergenzradius $rho$ — Rezept.*
+    #enum(
+      [*Immer gültig* (Cauchy-Hadamard): $1\/rho = limsup_(k) root(k, |c_k|)$ — existiert stets ($rho=+oo$ falls $=0$; $rho=0$ falls $=oo$).],
+      [*Shortcut:* $rho = lim_(k) |c_k\/c_(k+1)|$ — nur falls Limit existiert #emph[und] $c_k != 0$ ab einem $k$.],
+    )
+    #key[*Reflex:* Poly-/Konst-/Log-Faktoren in $c_k$ streichen ($root(k, dot)->1$); nur exp. Wachstum zählt $->$ Asymptotik.]
   ]
 
-  #Kor Konvergiert absolut für $|z| < rho$, divergiert für $|z| > rho$. Fall $|z| = rho$ separat prüfen.
+  #tbox[
+    *Shortcut scheitert?*
+    #enum(
+      [*Lücken* (fehlende Potenzen: $sum a_n x^(2n)$, $sum x^(n^2)$): Koeff.-Formel gibt $0/0$. $->$ Quotiententest auf die #emph[Terme], bzw. Subst. $u=x^2$, dann $rho_x=sqrt(rho_u)$.],
+      [*$|c_n|$ oszilliert* (z.B. $2^n$/$3^n$ alternierend): kein Quotientenlimit $->$ nur $limsup$-Wurzel, $rho=1\/max$.],
+    )
+  ]
 
-  #Bem Falls existent: $rho = lim_(k->oo) |c_k\/c_(k+1)|$ (Quotientenform, oft einfacher als die Wurzelformel).
+  #Kor Konvergiert absolut für $|z| < rho$, divergiert für $|z| > rho$.
+
+  #key[*Rand $|z|=rho$:* separat prüfen $->$ Leibniz / $p$-Reihe / Vergleich. #emph[Jetzt] zählen die zuvor gestrichenen Poly-Faktoren! ($sum x^n\/n$ div. bei $x=1$, $sum x^n\/n^2$ konv.)]
 
   #Satz $f(x) = sum c_k x^k$ mit $rho > 0$ konvergiert gleichmässig auf $[-rho,rho]$; $f : ]-rho,rho[ -> RR$ ist stetig.
 
